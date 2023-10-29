@@ -8,4 +8,6 @@ urlpatterns = [
     path('applicant/update/<int:pk>/', views.update_applicant, name='update_applicant'),
     path('applicant/delete/<int:pk>/', views.delete_applicant, name='delete_applicant'),
     path('reset-database/', views.reset_database, name='reset_database'),
+     path('create_applicant/', views.create_applicant, name='create_applicant'),
+    path('create_job/', views.create_job, name='create_job'),  # Add this line
 ]

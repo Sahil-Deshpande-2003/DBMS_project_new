@@ -75,8 +75,9 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="#">Company Name</a>
-        <a href="#">Create New Job</a>
+        <a href="#">Integrity</a>
+        <a href="{% url 'create_job' %}">Create New Job</a>
+
     </div>
     <div class="container">
         <h1>Database Data</h1>
@@ -86,7 +87,6 @@
                 <div class="data-item">
                     <h2>{{ applicant.first_name }} {{ applicant.last_name }}</h2>
                     <p><strong>Email:</strong> {{ applicant.email }}</p>
-                    <p><strong>Phone:</strong> {{ applicant.phone }}</p>
                     <h2>Applications</h2>
                     <div class="applications">
                         {% for application in applicant.application_set.all %}

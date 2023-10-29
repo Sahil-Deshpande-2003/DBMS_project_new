@@ -94,3 +94,14 @@ def reset_database(request):
             )
 
     return HttpResponse('Database reset completed!')
+
+
+def create_job(request):
+    if request.method == 'POST':
+        form = JobForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = JobForm()
+    return render(request, 'job_form.html', {'form': form})
