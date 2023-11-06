@@ -7,6 +7,28 @@ import random
 from django.http import HttpResponse
 import random
 
+from django.db.models import Q
+
+def search_results(request):
+    query = request.GET.get('query', '')
+    
+    applicants = Applicant.objects.filter(
+        Q(first_name__icontains=query) | Q(last_name__icontains=query) | Q(email__icontains=query) | Q(phone__icontains=query)
+    )
+    
+    jobs = Job.objects.filter(
+        Q(title__icontains=query) | Q(description__icontains=query) | Q(location__icontains=query)
+    )
+    
+    context = {
+        'query': query,
+        'applicants': applicants,
+        'jobs': jobs,
+    }
+    
+    return render(request, 'search_results.html', context)
+
+
 def index(request):
     applicants = Applicant.objects.all()
     jobs = Job.objects.all()

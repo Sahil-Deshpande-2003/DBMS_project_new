@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Applicants and Jobs</title>
+</head>
+<body>
+    <h1>Search Applicants and Jobs</h1>
+    <form method="get" action="{% url 'search_results' %}">
+        <input type="text" name="query" placeholder="Search..." />
+        <input type="submit" value="Search" />
+    </form>
+</body>
+</html>
